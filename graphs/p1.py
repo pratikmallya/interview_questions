@@ -14,7 +14,7 @@
 # the ancestor of the other? Or in general, at any different level?
 
 # I think the best way here is to simply walk up the tree till the
-# node and diff the list of ancestors. The walks will take O(logn)
+# root node and diff the list of ancestors. The walks will take O(logn)
 # steps and the diff, done on a list of size O(logn) will also be
 # O(logn) (Note: `n` here is the no. of nodes in the tree)
 
