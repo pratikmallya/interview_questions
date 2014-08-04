@@ -137,6 +137,8 @@ class TestLCA(unittest.TestCase):
         self.assertEqual(anc_node, self.node1)
         anc_node = get_common_ancestor([self.node9, self.node10, self.node5])
         self.assertEqual(anc_node, self.node2)
+        anc_node = get_common_ancestor([self.node9, self.node9])
+        self.assertEqual(anc_node, self.node4)
 
 
 if __name__ == '__main__':
