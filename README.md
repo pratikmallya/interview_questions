@@ -7,5 +7,5 @@ problem more but was restricted by the 1 hr limit.
 
 This is a repository where I shall collect 
 such interview questions found all over the web, and attempt to solve
-them on my own, using python.
+them on my own, using python3.
 
