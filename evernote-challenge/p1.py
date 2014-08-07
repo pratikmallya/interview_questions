@@ -125,7 +125,7 @@ class cbuffer(deque):
                         self.popleft()
                 elif line.split()[0] == 'L':
                     for item in self:
-                        print(item, end=' ')
+                        print item,
                 else:
                     pass
 
@@ -185,6 +185,6 @@ class TestBuffer(unittest.TestCase):
 
 if __name__ == "__main__":
     #unittest.main()
-    input_file = input()
+    input_file = raw_input()
     buf = cbuffer.readMax(input_file)
     buf.runFile(input_file)
