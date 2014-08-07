@@ -10,6 +10,7 @@
 
 import unittest
 
+
 class Graph(object):
     """"Global class that reprents entire graph."""
 
@@ -51,9 +52,6 @@ class Graph(object):
             self._graph[idn] = {'neighbors': listn, 'visited': False}
 
 
-
-
-
 class TestGraphAlgos(unittest.TestCase):
 
     def setUp(self):
@@ -68,19 +66,19 @@ class TestGraphAlgos(unittest.TestCase):
                9  10 11 12
         """
         self._adjacency_list = {
-        '1': ['2', '3'],
-        '2': ['1', '4', '5', '6'],
-        '3': ['1', '7', '8'],
-        '4': ['2', '5', '9', '10'],
-        '5': ['2', '4'],
-        '6': ['2', '7', '11', '12'],
-        '7': ['3', '6', '8'],
-        '8': ['3', '7'],
-        '9': ['4'],
-        '10': ['4'],
-        '11': ['6'],
-        '12': ['6']
-        } 
+            '1': ['2', '3'],
+            '2': ['1', '4', '5', '6'],
+            '3': ['1', '7', '8'],
+            '4': ['2', '5', '9', '10'],
+            '5': ['2', '4'],
+            '6': ['2', '7', '11', '12'],
+            '7': ['3', '6', '8'],
+            '8': ['3', '7'],
+            '9': ['4'],
+            '10': ['4'],
+            '11': ['6'],
+            '12': ['6']
+        }
         self.graph = Graph(self._adjacency_list)
 
     def test_graphNode(self):
@@ -98,7 +96,6 @@ class TestGraphAlgos(unittest.TestCase):
         self.assertFalse(node13['visited'])
         self.assertEqual(node13['neighbors'], node['13'])
 
-
-
-if __name__=='__main__':
+if __name__== '__main__':
     unittest.main()
+    
