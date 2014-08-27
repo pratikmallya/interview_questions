@@ -8,18 +8,20 @@ it will be the smallest int).
 e.g.
 input = "2 3 10 dehra dun apple wookie 78 9"
 output = [2, 3, 9, 'apple', 'dehra', 'dun', 'wookie', 10, 78]
+
 """
-from sys import stdin
 import unittest
 
+
 class TestAlg(unittest.TestCase):
-    #arr = stdin.readline().strip().split()
     def test_basics(self):
         arr = "2 3 10 dehra dun apple wookie 78 9"
         res = jumble_sort(arr)
-        self.assertEqual(res,
+        self.assertEqual(
+            res,
             [2, 3, 9, 'apple', 'dehra', 'dun', 'wookie', 10, 78]
         )
+
 
 def jumble_sort(arr):
     arr = arr.strip().split()
@@ -38,6 +40,7 @@ def jumble_sort(arr):
 
     return int_ind
 
+
 def is_int(item):
     try:
         int(item)
@@ -45,5 +48,5 @@ def is_int(item):
     except ValueError:
         return False
 
-if __name__=="__main__":
+if __name__ == "__main__":
     unittest.main()
