@@ -9,3 +9,4 @@ This is a repository where I shall collect
 such interview questions found all over the web, and attempt to solve
 them on my own, using python3.
 
+All material &copy; Pratik Mallya
