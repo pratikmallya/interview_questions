@@ -1,3 +1,14 @@
+"""
+Jumble Sort:
+
+Given an array of mixed integers and strings, sort the array, so that the
+strings and integers remain in the same relative place (i.e. if the first
+element of array was int, it will remain int. But, it will be sorted, so
+it will be the smallest int).
+e.g.
+input = "2 3 10 dehra dun apple wookie 78 9"
+output = [2, 3, 9, 'apple', 'dehra', 'dun', 'wookie', 10, 78]
+"""
 from sys import stdin
 import unittest
 
