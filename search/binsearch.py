@@ -7,11 +7,17 @@ from random import sample
 
 class TestAlg(unittest.TestCase):
     def test_case_1(self):
-        arr = list(range(100))
+        maxrange = 10000
+        arr = list(range(maxrange))
         for i, item in enumerate(arr):
             self.assertEqual(
                 binsearch(arr, item), i
                 )
+        maxrange = 5000
+        arr = list(range(maxrange))
+        self.assertEqual(
+            binsearch(arr, maxrange+10), -1
+            )
 
     def test_case_2(self):
         maxrange = 100000
@@ -24,20 +30,20 @@ class TestAlg(unittest.TestCase):
 
 
 def binsearch(array, item, imin=None, imax=None):
-    if not imin:
+    if imin is None:
         imin = 0
 
-    if not imax:
-        imax = len(array)
+    if imax is None:
+        imax = len(array)-1
 
     if imin > imax:
         return -1
     else:
         mid = int((imin + imax)/2)
         if item > array[mid]:
-            return binsearch(array, item, imin=mid, imax=imax)
+            return binsearch(array, item, imin=mid+1, imax=imax)
         elif item < array[mid]:
-            return binsearch(array, item, imin=imin, imax=mid)
+            return binsearch(array, item, imin=imin, imax=mid-1)
         else:
             return mid
 
