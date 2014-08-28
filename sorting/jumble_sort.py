@@ -25,7 +25,7 @@ class TestAlg(unittest.TestCase):
 
 def jumble_sort(arr):
     arr = arr.strip().split()
-    int_ind = map(is_int, arr)
+    int_ind = list(map(is_int, arr))
     int_arr = [int(item) for item in arr if is_int(item)]
     char_arr = [item for item in arr if not is_int(item)]
 
