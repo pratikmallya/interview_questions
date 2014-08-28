@@ -51,10 +51,10 @@ def binsearch(array, item, imin=None, imax=None):
             return -1
         mid = int((imin + imax)/2)
         if item > array[mid]:
-            imin=mid+1
+            imin = mid+1
             continue
         elif item < array[mid]:
-            imax=mid-1
+            imax = mid-1
             continue
         else:
             return mid
