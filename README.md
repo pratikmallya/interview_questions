@@ -11,4 +11,7 @@ This is a repository where I shall collect
 such interview questions found all over the web, and attempt to solve
 them on my own, using python3.
 
+Also, I shall be including tests to make sure that the code works. And
+run the tests on Travis-CI after each push. 
+
 All material &copy; Pratik Mallya
