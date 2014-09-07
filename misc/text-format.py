@@ -53,14 +53,14 @@ def get_lines(text, width):
                     index += len(current_line)
                 else:
                     current_line = text[index:index+word_end_index]
-                    index += word_end_index + 1 # extra index to skip blank
+                    index += word_end_index + 1  # extra index to skip blank
 
                 yield "{}\n".format(current_line)
 
             else:
                 # blank found, write only words upto blank
                 yield "{}\n".format(current_line[:last_blank])
-                index += last_blank + 1 # extra index to skip blank
+                index += last_blank + 1  # extra index to skip blank
 
 
 if __name__ == "__main__":
