@@ -10,7 +10,7 @@ class QuickFind:
     """A QuickFind data structure.
 
     Implementation of a quick-find data structure. Optimized for finding
-    whether 2 objects belong to the same connected component O(1). Terrible
+    whether 2 objects belong to the same connected component: O(1). Terrible
     at doing the actual union though: O(n).
 
     Attributes:
@@ -60,8 +60,6 @@ class TestAlg(unittest.TestCase):
         uf.union(5,6)
         self.assertTrue(uf.connected(0, 6))
         self.assertTrue(uf.connected(5, 6))
-
-
 
 
 if __name__ == "__main__":

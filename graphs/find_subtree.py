@@ -86,9 +86,9 @@ def main():
 
             ans = is_subtree(tree1, tree2)
             if ans:
-                sys.stdout.write("Yes\n".format(ans))
+                sys.stdout.write("Yes\n")
             else:
-                sys.stdout.write("No\n".format(ans))
+                sys.stdout.write("No\n")
 
 
 def build_tree(line):
