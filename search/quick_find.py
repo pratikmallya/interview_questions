@@ -7,6 +7,16 @@ import unittest
 
 
 class QuickFind:
+    """A QuickFind data structure.
+
+    Implementation of a quick-find data structure. Optimized for finding
+    whether 2 objects belong to the same connected component O(1). Terrible
+    at doing the actual union though: O(n).
+
+    Attributes:
+        union: union the input objects
+        connected: find if the input objects are connected
+    """
 
     def __init__(self, N):
         """Initialize QF data structure"""
