@@ -43,10 +43,8 @@ class QuickFind:
 
     def connected(self, x, y):
         """Returns true iff x and y beling to the same connected component"""
-        if self.data[x] == self.data[y]:
-            return True
-        else:
-            return False
+
+        return self.data[x] == self.data[y]
 
 
 class TestAlg(unittest.TestCase):

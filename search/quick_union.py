@@ -36,13 +36,8 @@ class QuickUnion:
 
     def connected(self, x, y):
         """Returns true iff x and y beling to the same connected component"""
-        rootx = self.__find_root(x)
-        rooty = self.__find_root(y)
 
-        if rootx == rooty:
-            return True
-        else:
-            return False
+        return self.__find_root(x) == self.__find_root(y)
 
     def __find_root(self, x):
         """Returns the root of the tree """
