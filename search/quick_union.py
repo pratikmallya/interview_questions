@@ -17,6 +17,7 @@ class QuickUnion:
     def __init__(self, N):
         """Initialize QF data structure"""
         self.data = list(range(N))
+        self.weights = [1]*N
 
     def union(self, x, y):
         """union the sets to which x and y belong.
@@ -32,7 +33,12 @@ class QuickUnion:
         rootx = self.__find_root(x)
         rooty = self.__find_root(y)
 
-        self.data[rootx] = rooty
+        if self.weights[rootx] >= self.weights[rooty]:
+            self.data[rooty] = rootx
+            self.weights[rootx] += self.weights[rooty]
+        else:
+            self.data[rootx] = rooty
+            self.weights[rooty] += self.weights[rooty]
 
     def connected(self, x, y):
         """Returns true iff x and y beling to the same connected component"""
