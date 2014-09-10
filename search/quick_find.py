@@ -53,13 +53,13 @@ class TestAlg(unittest.TestCase):
 
     def test_1(self):
         N = 10
-        uf = QuickFind(N)
-        uf.union(0, 5)
-        self.assertTrue(uf.connected(0, 5))
-        self.assertFalse(uf.connected(0, 1))
-        uf.union(5,6)
-        self.assertTrue(uf.connected(0, 6))
-        self.assertTrue(uf.connected(5, 6))
+        qf = QuickFind(N)
+        qf.union(0, 5)
+        self.assertTrue(qf.connected(0, 5))
+        self.assertFalse(qf.connected(0, 1))
+        qf.union(5,6)
+        self.assertTrue(qf.connected(0, 6))
+        self.assertTrue(qf.connected(5, 6))
 
 
 if __name__ == "__main__":
