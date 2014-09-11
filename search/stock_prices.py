@@ -4,6 +4,12 @@ Given a time-ordered list of stock prices, give the best buy-sell strategy
 e.g [300, 200, 500, 1000, 100, 800]
 ans: 200, 1000
 
+Answer:
+Note that the simplest algorithm, checks pairwise, all values. However, this
+is quadratic and not what we want.
+The crucial insight is this: if we start from the _end_ instead of the front,
+you can keep track of the largest stock value. If we find a larger stock
+value, we can update it.
 """
 import unittest
 
