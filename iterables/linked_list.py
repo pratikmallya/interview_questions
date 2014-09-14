@@ -8,7 +8,7 @@ import unittest
 class TestLinkedList(unittest.TestCase):
 
     def test_1(self):
-        N = 1000
+        N = 10
         ll = LinkedList(N)
         self.assertEqual(ll.data, N)
         ll = LinkedList(range(N))
@@ -26,7 +26,9 @@ class LinkedList(object):
 
     def __init__(self, data):
         if isinstance(data, Iterable):
-            self = self.__build_list(data)
+            ll = self.__build_list(data)
+            self.data = ll.data
+            self.next = ll.next
         else:
             self.data = data
             self.next = None
