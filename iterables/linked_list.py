@@ -52,6 +52,14 @@ class LinkedList(object):
         else:
             self.data = data
 
+    def __iter__(self):
+        """yield data values stored in linked list"""
+        node = self
+
+        while node:
+            yield node.data
+            node = node.next
+
     def __build_list(self, datas):
         """build the list from the iterable
 
@@ -64,14 +72,24 @@ class LinkedList(object):
             node = node.next
         return head.next
 
-    def insert(self, data):
-        """insert element data in the linked list
+    def rinsert(self, data):
+        """insert element data in the linked list to the right
         """
         node = self
         while node.next:
             node = node.next
         node.next = LinkedList(data)
         return True
+
+    def linsert(self, data):
+        """insert element data in the linked list to the left
+        """
+        node = LinkedList(data)
+        node.next = self.next
+        self.next = node
+        return True
+
+    insert = linsert
 
     def delete(self, data):
         """delete element from linked list"""
@@ -97,13 +115,7 @@ class LinkedList(object):
 
         return False
 
-    def __iter__(self):
-        """yield data values stored in linked list"""
-        node = self
 
-        while node:
-            yield node.data
-            node = node.next
 
 
 if __name__ == "__main__":
