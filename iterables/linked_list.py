@@ -1,7 +1,7 @@
 """
 Base class for singly linked-list
 """
-from collections import Iterable
+
 import unittest
 
 
@@ -42,19 +42,20 @@ class LinkedList(object):
         Arguments:
             data: either a single object or iterable
         """
+        from collections import Iterable
+
         self.data = None
         self.next = None
 
         if isinstance(data, Iterable):
             ll = self.__build_list(data)
-            self.data = ll.data
-            self.next = ll.next
+            self.next = ll
         else:
             self.data = data
 
     def __iter__(self):
         """yield data values stored in linked list"""
-        node = self
+        node = self.next
 
         while node:
             yield node.data
@@ -114,8 +115,6 @@ class LinkedList(object):
             node = node.next
 
         return False
-
-
 
 
 if __name__ == "__main__":
