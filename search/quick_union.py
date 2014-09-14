@@ -49,7 +49,11 @@ class QuickUnion:
         """Returns the root of the tree """
         index = x
         while self.data[index] != index:
+            self.data[index] = self.data[self.data[index]]
             index = self.data[index]
+        # set all intermediate nodes to point to root
+        for node in intermediate_nodes:
+            self.data[node] = index
         return index
 
 
