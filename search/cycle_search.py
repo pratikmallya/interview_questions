@@ -6,6 +6,41 @@ Find all cycles in the given input digraph
 """
 
 import sys
+import unittest
+
+
+class TestNumCycles(unittest.TestCase):
+
+    def test_sanity(self):
+        N = 7
+        nodes = [2, 3, 4, 5, 6, -1, 0]
+        graph = {}
+        for i, item in enumerate(nodes):
+            graph[i] = item
+        self.assertEqual(num_cycles(graph, N), 1)
+
+    def test_simple_large_graphs(self):
+        N = 3000
+
+        graph = {}
+        for i in range(N):
+            graph[i] = i
+        self.assertEqual(num_cycles(graph, N), N)
+
+        for i in range(N-1):
+            graph[i] = i+1
+        graph[N-1] = 0
+
+        self.assertEqual(num_cycles(graph, N), 1)
+
+        graph[int(N/3)] = 0
+        graph[2*int(N/3)] = int(N/3) + 1
+        graph[N-1] = 2*int(N/3) + 1
+
+        self.assertEqual(num_cycles(graph, N), 3)
+
+    def test_border_cases(self):
+        self.assertRaises(KeyError, num_cycles, {}, 100)
 
 
 def main():
@@ -51,4 +86,4 @@ def num_cycles(graph, N):
     return num_cycles
 
 if __name__ == "__main__":
-    main()
+    unittest.main()
