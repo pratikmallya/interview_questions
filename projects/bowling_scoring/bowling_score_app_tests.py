@@ -9,23 +9,19 @@ class BowlingTests(unittest.TestCase):
         self.app = bowling.app.test_client()
 
     def test_basic(self):
-        rv = self.app.post('/bowling/new')
+        rv = self.app.get('/bowling/score')
         print(rv.data)
-        id1 = json.loads(rv.data.decode('utf-8'))['score_id']
-        rv = self.app.get('/bowling/score/{}'.format(id1))
         self.assertEqual(json.loads(rv.data.decode('utf-8'))['score'], 0)
-        rv = self.app.get('/bowling/scores/{}'.format(id1))
+        rv = self.app.get('/bowling/scores')
         self.assertEqual(json.loads(rv.data.decode('utf-8'))['scores'], [])
-        rv = self.app.post('/bowling/score/{}'.format(id1),
-                            data=json.dumps({'score': 1}),
-                            content_type='application/json')
+        rv = self.app.post('/bowling/score', data=json.dumps({'score': 1}),
+                           content_type='application/json')
         self.assertEqual(json.loads(rv.data.decode('utf-8'))['scores'], ['1'])
-        rv = self.app.post('/bowling/score/{}'.format(id1),
-                           data=json.dumps({'score': 2}),
+        rv = self.app.post('/bowling/score', data=json.dumps({'score': 2}),
                            content_type='application/json')
         self.assertEqual(json.loads(rv.data.decode('utf-8'))['scores'],
                          ['1', '2'])
-        rv = self.app.get('/bowling/score/{}'.format(id1))
+        rv = self.app.get('/bowling/score')
         self.assertEqual(json.loads(rv.data.decode('utf-8'))['score'], 3)
 
 
