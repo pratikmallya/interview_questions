@@ -3,3 +3,4 @@ python:
   - "3.3"
 # command to run tests, e.g. python setup.py test
 script:  nosetests --all-modules
+install: flask
