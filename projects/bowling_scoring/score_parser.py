@@ -121,7 +121,7 @@ class ScoreParser(object):
     tree = {"X": {"X": {"X": 30}}}
     for i in range(10):
         tree["X"]["X"][str(i)] = 20 + i
-        tree["X"][str(i)]={"/": 20}
+        tree["X"][str(i)] = {"/": 20}
         tree[str(i)] = {"/": {"X": 20}}
         for j in range(10):
             tree["X"][str(i)][str(j)] = 10 + i + j
@@ -130,9 +130,8 @@ class ScoreParser(object):
 
     # pre-compute next-token
     next_token = {"X": 1}
-    for i in range(10) :
+    for i in range(10):
         next_token[str(i)] = 2
-
 
     def __init__(self):
         self.reset()
