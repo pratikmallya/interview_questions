@@ -1,5 +1,5 @@
 #!flask/bin/python
-from flask import Flask, jsonify, make_response, request, abort, g
+from flask import Flask, jsonify, make_response, request, abort
 from score_parser import ScoreParser
 
 
