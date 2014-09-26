@@ -49,6 +49,7 @@ NUMBER = "0123456789"
 
 
 class TestAlg(unittest.TestCase):
+    """ Unit test algorithms in this file"""
 
     def test_1(self):
         sp = ScoreParser()
@@ -137,6 +138,7 @@ class ScoreParser(object):
         self.reset()
 
     def update(self, token):
+        """consume token and update state"""
         if isinstance(self._state[token], dict):
             self._state = self._state[token]
             return None
@@ -146,6 +148,7 @@ class ScoreParser(object):
             return result
 
     def _compute_scores(self):
+        """compute per-frame scores"""
         self._scores = []
         i = 0
         while i < len(self._buf):
@@ -161,28 +164,34 @@ class ScoreParser(object):
                 return
 
     def read_stream(self, stream):
+        """read a stream of tokens"""
         self.reset()
         for token in stream:
             self._buf.append(token)
 
     def read(self, token):
+        """read a single token"""
         self._buf.append(token)
 
     @property
     def frame_scores(self):
+        """compute per-frame scores"""
         self._compute_scores()
         return self._scores
 
     @property
     def score(self):
+        """return overall score"""
         self._compute_scores()
         return sum(self._scores)
 
     @property
     def scores(self):
+        """return scores"""
         return self._buf
 
     def reset(self):
+        """reset object to clean slate"""
         self._state = self.tree
         self._scores = []
         self._buf = []

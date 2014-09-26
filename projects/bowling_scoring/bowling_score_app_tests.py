@@ -2,6 +2,7 @@ import unittest
 import bowling
 import json
 
+
 class BowlingTests(unittest.TestCase):
 
     def setUp(self):
@@ -19,9 +20,11 @@ class BowlingTests(unittest.TestCase):
         self.assertEqual(json.loads(rv.data.decode('utf-8'))['scores'], ['1'])
         rv = self.app.post('/bowling/score', data=json.dumps({'score': 2}),
                            content_type='application/json')
-        self.assertEqual(json.loads(rv.data.decode('utf-8'))['scores'], ['1', '2'])
+        self.assertEqual(json.loads(rv.data.decode('utf-8'))['scores'],
+                         ['1', '2'])
         rv = self.app.get('/bowling/score')
         self.assertEqual(json.loads(rv.data.decode('utf-8'))['score'], 3)
+
 
 if __name__ == "__main__":
     unittest.main()

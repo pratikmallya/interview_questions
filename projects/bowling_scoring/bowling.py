@@ -19,10 +19,11 @@ def index():
 
 @app.route('/bowling/score', methods=['GET', 'POST'])
 def score():
+    """add a score or return computed overall score"""
     if request.method == 'GET':
         return jsonify({'score': sp.score}), 200
     elif request.method == 'POST':
-        if not request.json or not 'score' in request.json:
+        if not request.json or 'score' not in request.json:
             abort(400)
         sp.read(str(request.json['score']))
         return jsonify({'scores': sp.scores}), 201
@@ -30,12 +31,14 @@ def score():
 
 @app.route('/bowling/scores', methods=['GET'])
 def scores():
+    """return list of scores input"""
     if request.method == 'GET':
         return jsonify({'scores': sp.scores}), 200
 
 
 @app.route('/bowling/new', methods=['POST'])
 def new_score():
+    """clear the state"""
     sp.reset()
     return jsonify({'scores': sp.scores}), 201
 
