@@ -150,13 +150,15 @@ class ScoreParser(object):
         i = 0
         while i < len(self._buf):
             for j in range(3):
+                if i + j >= len(self._buf):
+                    return
                 result = self.update(self._buf[i+j])
                 if result is not None:
                     self._scores.append(result)
                     break
             i += self.next_token[self._buf[i]]
             if len(self._scores) > 9:
-                break
+                return
 
     def read_stream(self, stream):
         self.reset()
@@ -167,7 +169,7 @@ class ScoreParser(object):
         self._buf.append(token)
 
     @property
-    def scores(self):
+    def frame_scores(self):
         self._compute_scores()
         return self._scores
 
@@ -175,6 +177,10 @@ class ScoreParser(object):
     def score(self):
         self._compute_scores()
         return sum(self._scores)
+
+    @property
+    def scores(self):
+        return self._buf
 
     def reset(self):
         self._state = self.tree
