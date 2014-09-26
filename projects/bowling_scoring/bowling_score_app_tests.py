@@ -9,8 +9,7 @@ class BowlingTests(unittest.TestCase):
         self.app = bowling.app.test_client()
 
     def test_basic(self):
-        rv = self.app.get('/')
-        self.assertIn('Hello, World!', str(rv.data))
+
         rv = self.app.get('/bowling/score')
         self.assertEqual(json.loads(rv.data.decode('utf-8'))['score'], 0)
         rv = self.app.get('/bowling/scores')

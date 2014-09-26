@@ -12,11 +12,6 @@ def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 
-@app.route('/')
-def index():
-    return "Hello, World!"
-
-
 @app.route('/bowling/score', methods=['GET', 'POST'])
 def score():
     """add a score or return computed overall score"""
