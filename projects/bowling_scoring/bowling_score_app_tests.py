@@ -23,6 +23,14 @@ class BowlingTests(unittest.TestCase):
                          ['1', '2'])
         rv = self.app.get('/bowling/score')
         self.assertEqual(json.loads(rv.data.decode('utf-8'))['score'], 3)
+        inp = "X 7 / 7 2 9 / X X X 2 3 X 7 / 3".split()
+        rv = self.app.post('/bowling/new')
+        for token in inp:
+            self.app.post('/bowling/score', data=json.dumps({'score': token}),
+                           content_type='application/json')
+        rv = self.app.get('/bowling/score')
+        self.assertEqual(json.loads(rv.data.decode('utf-8'))['score'], 171)
+
 
 
 if __name__ == "__main__":
