@@ -34,9 +34,6 @@ def scores():
         return jsonify({'scores': sp.scores}), 200
 
 
-@app.route('/bowling/score', methods=['GET', 'POST'])
-def score():
-
 @app.route('/bowling/new', methods=['POST'])
 def new_score():
     sp.reset()
