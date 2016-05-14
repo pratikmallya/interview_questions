@@ -43,9 +43,12 @@ def record_hit(time_t=None):
 
     hits[time_t] += 1
     # clean up
+    del_keys = []
     for key in hits.keys():
         if time_t - key > 300:
-            del hits[key]
+            del_keys.append(key)
+    for key in del_keys:
+        del hits[key]
 
 
 def get_hits(time_t=None):
@@ -57,12 +60,16 @@ def get_hits(time_t=None):
         time_t = int(time_t)
 
     count = 0
-
+    del_keys = []
     for key in hits.keys():
         if time_t - key < 300:
             count += hits[key]
         else:
-            del hits[key]
+            del_keys.append(key)
+
+    for key in del_keys:
+        del hits[key]
+
     return count
 
 if __name__ == "__main__":
